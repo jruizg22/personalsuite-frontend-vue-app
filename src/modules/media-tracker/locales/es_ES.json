@@ -1,0 +1,64 @@
+{
+  "mediaTracker": "Media Tracker",
+  "media": "Multimedia",
+  "youTube": {
+    "youTube": "YouTube",
+    "channels": {
+      "channels": "Canales",
+      "channel": "Canal",
+      "created_at": "Fecha de creación",
+      "search_channels": "Buscar canales...",
+      "channel_link": "Enlace al canal",
+      "dialogs": {
+        "view_dialog": {
+          "title": "Detalles del canal"
+        },
+        "new_dialog": {
+          "title": "Nuevo canal"
+        },
+        "edit_dialog": {
+          "title": "Editar canal"
+        },
+        "delete_dialog": {
+          "title": "Eliminar canal",
+          "message": "¿Seguro que deseas eliminar el canal {{channel}}?"
+        }
+      },
+      "feedback": {
+        "new": "Canal creado con éxito",
+        "edit": "Canal modificado con éxito",
+        "delete": "Canal eliminado con éxito"
+      }
+    },
+    "videos": {
+      "videos": "Vídeos",
+      "video": "Vídeo",
+      "title": "Título",
+      "published_at": "Fecha de publicación",
+      "search_videos": "Buscar vídeos...",
+      "video_link": "Enlace al vídeo",
+      "last_viewed": "Visto por última vez",
+      "dialogs": {
+        "view_dialog": {
+          "title": "Detalles del vídeo"
+        },
+        "new_dialog": {
+          "title": "Nuevo vídeo"
+        },
+        "edit_dialog": {
+          "title": "Editar vídeo"
+        },
+        "delete_dialog": {
+          "title": "Eliminar vídeo",
+          "message": "¿Seguro que deseas eliminar el vídeo {{video}}?"
+        }
+      },
+      "feedback": {
+        "new": "Vídeo creado con éxito",
+        "edit": "Video modificado con éxito",
+        "delete": "Video eliminado con éxito"
+      }
+    },
+    "playlists": "Listas de reproducción"
+  }
+}

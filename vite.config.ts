@@ -12,6 +12,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@media-tracker': path.resolve(__dirname, './src/modules/media-tracker'),
         },
     },
 })

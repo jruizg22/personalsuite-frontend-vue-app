@@ -1,0 +1,64 @@
+{
+  "mediaTracker": "Media Tracker",
+  "media": "Media",
+  "youTube": {
+    "youTube": "YouTube",
+    "channels": {
+      "channels": "Channels",
+      "channel": "Channel",
+      "created_at": "Created at",
+      "search_channels": "Search channels...",
+      "channel_link": "Link to channel",
+      "dialogs": {
+        "view_dialog": {
+          "title": "Channel details"
+        },
+        "new_dialog": {
+          "title": "New channel"
+        },
+        "edit_dialog": {
+          "title": "Edit channel"
+        },
+        "delete_dialog": {
+          "title": "Delete channel",
+          "message": "Are you sure you want to delete the channel {{channel}}?"
+        }
+      },
+      "feedback": {
+        "new": "Channel created successfully",
+        "edit": "Channel modified successfully",
+        "delete": "Channel deleted successfully"
+      }
+    },
+    "videos": {
+      "videos": "Videos",
+      "video": "Video",
+      "title": "Title",
+      "published_at": "Published at",
+      "search_videos": "Search videos...",
+      "video_link": "Video link",
+      "last_viewed": "Last viewed",
+      "dialogs": {
+        "view_dialog": {
+          "title": "Video details"
+        },
+        "new_dialog": {
+          "title": "New video"
+        },
+        "edit_dialog": {
+          "title": "Edit video"
+        },
+        "delete_dialog": {
+          "title": "Delete video",
+          "message": "Are you sure you want to delete the video {{video}}?"
+        }
+      },
+      "feedback": {
+        "new": "Video created successfully",
+        "edit": "Video modified successfully",
+        "delete": "Video deleted successfully"
+      }
+    },
+    "playlists": "Playlists"
+  }
+}

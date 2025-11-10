@@ -21,8 +21,11 @@
  * ```
  */
 
-import commonEnUs from './en-US.json'
-import commonEsEs from './es-ES.json'
+import commonEnUs from './en_US.json'
+import commonEsEs from './es_ES.json'
+
+import mediaTrackerEnUs from '@media-tracker/locales/en_US.json'
+import mediaTrackerEsEs from '@media-tracker/locales/es_ES.json'
 
 /**
  * i18n messages object for the application.
@@ -37,11 +40,15 @@ export const messages = {
     /** English (United States) translations */
     en_US: {
         /** Common namespace containing general UI strings */
-        common: commonEnUs
+        common: commonEnUs,
+        /** Media Tracker namespace */
+        mediaTrackerEnUs: mediaTrackerEnUs,
     },
     /** Spanish (Spain) translations */
     es_ES: {
         /** Common namespace containing general UI strings */
-        common: commonEsEs
+        common: commonEsEs,
+        /** Media Tracker namespace */
+        mediaTrackerEsEs: mediaTrackerEsEs,
     },
 } as const;
