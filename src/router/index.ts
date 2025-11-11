@@ -1,52 +1,47 @@
-import {createRouter, createWebHistory, type Router} from 'vue-router'
-import {HomeView, SettingsView} from '@/components/pages'
+import {createRouter, createWebHistory, type Router, type RouteRecordRaw} from 'vue-router'
+import {routes as baseRoutes} from '@/constants'
 
 /**
- * Vue Router instance for the application.
+ * Main Vue Router instance for the application.
  *
- * This router is configured with:
- * - `createWebHistory`: uses HTML5 history mode for clean URLs.
- * - `routes`: defines the main routes of the application.
+ * This file initializes and exports the application's router, which is
+ * configured to use HTML5 history mode via `createWebHistory`.
  *
- * Each route includes:
- * - `path`: the URL path.
- * - `name`: the unique route name.
- * - `component`: the Vue component to render.
- * - `meta.breadcrumb`: the i18n key for the breadcrumb label.
- *   This allows breadcrumbs to be dynamically translated using `vue-i18n`.
+ * The router merges the base routes defined in `@/constants` with any
+ * additional module-specific routes (if added in the future) to create
+ * a unified navigation structure.
  *
- * Example usage with Vue application:
+ * ### Features:
+ * - Uses the `import.meta.env.BASE_URL` as the base public path.
+ * - Provides a single source of truth for all app navigation.
+ * - Designed to support modular route extensions (e.g. `/modules/.../routes.ts`).
+ *
+ * ### Example:
  * ```ts
+ * import router from '@/router'
  * import { createApp } from 'vue'
  * import App from '@/App.vue'
- * import router from '@/router'
  *
  * const app = createApp(App)
  * app.use(router)
  * app.mount('#app')
  * ```
  *
- * Integration with breadcrumbs and i18n:
- * - Use a composable (e.g., `useBreadcrumbs`) to read `route.matched` and
- *   translate `meta.breadcrumb` keys via `useI18n()`.
- * - This enables dynamic, translated breadcrumbs in the Toolbar.
+ * @see {@link https://router.vuejs.org/guide/} Vue Router official guide
+ * @see {@link RouteRecordRaw} for the route record type definition
+ */
+
+const routes: RouteRecordRaw[] = [
+    ...baseRoutes
+]
+
+/**
+ * The main application router.
+ * Handles navigation, history management, and route resolution.
  */
 const router: Router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: HomeView,
-            meta: {breadcrumb: 'common.start'}
-        },
-        {
-            path: '/settings',
-            name: 'settings',
-            component: SettingsView,
-            meta: {breadcrumb: 'common.settings'}
-        }
-    ],
+    routes
 })
 
 export default router
