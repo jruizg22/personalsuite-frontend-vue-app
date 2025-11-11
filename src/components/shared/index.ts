@@ -1,1 +1,1 @@
-export {default as Breadcrumbs} from './Breadcrumbs.vue'
+export {default as BreadcrumbsStatic} from './BreadcrumbsStatic.vue'

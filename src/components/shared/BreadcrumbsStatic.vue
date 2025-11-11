@@ -40,28 +40,18 @@
  * - Works with dynamic breadcrumbs, including routes with subpaths.
  */
 
-import {useBreadcrumbs} from '@/composables'
+import {useBreadcrumbs} from '@/composables';
 
-const {breadcrumbs} = useBreadcrumbs()
+const {breadcrumbs} = useBreadcrumbs();
 </script>
 
 <template>
-  <v-breadcrumbs>
-    <v-breadcrumbs-item
-        v-for="(crumb, index) in breadcrumbs"
-        :key="index"
-        :href="breadcrumbs.length > 1 && index !== breadcrumbs.length - 1 ? crumb.path : undefined"
-        :style="(!crumb.path || breadcrumbs.length === 1) ? { cursor: 'default' } : {}"
-        class="text-white breadcrumb-large"
-    >
-      {{ crumb.name }}
-    </v-breadcrumbs-item>
-  </v-breadcrumbs>
+  <template v-for="(crumb, index) in breadcrumbs" :key="index">
+    <span>{{ crumb.name }}</span>
+    <span v-if="index < breadcrumbs.length - 1"> / </span>
+  </template>
 </template>
 
 <style scoped>
-.breadcrumb-large {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
+
 </style>

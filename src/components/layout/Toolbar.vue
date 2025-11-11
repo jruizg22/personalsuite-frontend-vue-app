@@ -32,10 +32,10 @@
  * - The component automatically adapts to desktop and mobile screen sizes.
  */
 
-import {useLayoutStore} from '@/stores'
-import {Breadcrumbs} from '@/components/shared'
+import {useLayoutStore} from '@/stores';
+import {BreadcrumbsStatic} from '@/components/shared';
 
-const layout = useLayoutStore()
+const layout = useLayoutStore();
 </script>
 
 <template>
@@ -44,7 +44,9 @@ const layout = useLayoutStore()
         v-if="!layout.isDesktop"
         @click="layout.toggleDrawer"
     />
-    <Breadcrumbs/>
+    <v-toolbar-title>
+      <BreadcrumbsStatic/>
+    </v-toolbar-title>
   </v-app-bar>
 </template>
 

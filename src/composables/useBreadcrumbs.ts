@@ -41,12 +41,12 @@ export function useBreadcrumbs() {
 
     const breadcrumbs = computed(() => {
         return route.matched
-            .filter(r => r.meta && r.meta.breadcrumb)
+            .filter(r => r.meta && r.meta.i18nKey)
             .map(r => ({
-                name: t(r.meta.breadcrumb as string),
+                name: t(r.meta.i18nKey as string),
                 path: r.path
             }))
-    })
+    });
 
     return {breadcrumbs}
 }
