@@ -10,8 +10,6 @@
  * Behavior:
  * - Uses `v-sheet` with `position: sticky` and `top` offset to remain
  *   under the toolbar.
- * - Adjusts horizontal position according to the drawer width (`layout.drawerWidth`)
- *   to prevent overlap with the navigation drawer.
  * - The sticky bar grows in height depending on its content; avoid
  *   fixed heights if multiple rows are needed.
  * - Internal content should be responsive (`v-row`, `v-col`, `w-100`)
@@ -30,9 +28,9 @@
  * The sticky bar will render only if `layout.stickyComponent` is set.
  */
 
-import {useLayoutStore} from '@/stores';
+import {useLayoutStore} from '@/stores'
 
-const layout = useLayoutStore();
+const layout = useLayoutStore()
 </script>
 
 <template>
@@ -40,7 +38,6 @@ const layout = useLayoutStore();
       v-if="layout.stickyComponent"
       elevation="1"
       class="sticky-bar"
-      :style="{ left: `${layout.drawerWidth}px` }"
   >
     <v-container fluid class="pa-0 ma-0">
       <component

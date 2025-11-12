@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {ref, watch} from 'vue'
+import {ref, shallowRef, watch} from 'vue'
 import {useIsDesktop} from '@/composables'
 
 /**
@@ -64,7 +64,7 @@ export const useLayoutStore = defineStore('layout', () => {
     }
 
     /** Dynamic component rendered under the toolbar (sticky bar) */
-    const stickyComponent = ref<null | any>(null)
+    const stickyComponent = shallowRef<null | any>(null)
 
     /** Set a component as the sticky bar */
     const setStickyComponent = (component: any): void => {
