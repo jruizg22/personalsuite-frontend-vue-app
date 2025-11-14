@@ -39,13 +39,12 @@ const layout = useLayoutStore()
       elevation="1"
       class="sticky-bar"
   >
-    <v-container fluid class="pa-0 ma-0">
-      <component
-          :is="layout.stickyComponent.component || layout.stickyComponent"
-          v-bind="layout.stickyComponent.props || {}"
-          class="w-100"
-      />
-    </v-container>
+    <component
+        v-if="layout.stickyComponent"
+        :is="layout.stickyComponent.component"
+        v-bind="layout.stickyComponent.props"
+        class="w-100"
+    />
   </v-sheet>
 </template>
 

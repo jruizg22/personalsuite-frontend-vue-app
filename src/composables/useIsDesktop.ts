@@ -1,4 +1,5 @@
 import {useDisplay} from 'vuetify'
+import type {Ref} from 'vue'
 
 /**
  * Composable to detect if the current screen size is desktop (large or larger).
@@ -17,7 +18,7 @@ import {useDisplay} from 'vuetify'
  * }
  * ```
  */
-export function useIsDesktop() {
+export function useIsDesktop(): Ref<boolean> {
     const {lgAndUp} = useDisplay()
     return lgAndUp
 }

@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {ref, shallowRef, watch} from 'vue'
+import {type Component, type Ref, ref, shallowRef, watch} from 'vue'
 import {useIsDesktop} from '@/composables'
 
 /**
@@ -48,10 +48,10 @@ import {useIsDesktop} from '@/composables'
  */
 export const useLayoutStore = defineStore('layout', () => {
     /** Whether the navigation drawer is open */
-    const drawer = ref(false)
+    const drawer: Ref<boolean> = ref(false)
 
     /** True if the viewport is desktop (lg breakpoint or larger) */
-    const isDesktop = useIsDesktop()
+    const isDesktop: Ref<boolean> = useIsDesktop()
 
     /** Automatically open/close drawer when screen size changes */
     watch(isDesktop, (val: boolean): void => {
@@ -64,11 +64,11 @@ export const useLayoutStore = defineStore('layout', () => {
     }
 
     /** Dynamic component rendered under the toolbar (sticky bar) */
-    const stickyComponent = shallowRef<null | any>(null)
+    const stickyComponent: Component = shallowRef<null | { component: Component, props?: Record<string, any> }>(null)
 
     /** Set a component as the sticky bar */
-    const setStickyComponent = (component: any): void => {
-        stickyComponent.value = component
+    const setStickyComponent = (component: Component, props?: Record<string, any>): void => {
+        stickyComponent.value = { component, props }
     }
 
     /** Clear the sticky bar component */

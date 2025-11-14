@@ -8,7 +8,6 @@
  * ### Features:
  * - Dynamically renders tabs from a `tabs` array.
  * - Supports `v-model` for the active tab.
- * - Configurable tab alignment (`top` or `bottom`) and layout type (`normal`, `fixed`, `grow`).
  * - Uses i18n for tab labels.
  * - Content for each tab is rendered via named slots matching `tabId`.
  *
@@ -45,26 +44,23 @@
  *
  * @remarks
  * - The active tab is synchronized with `v-model`.
- * - `v-tabs` is wrapped in a `v-sheet` with elevation `1` for a subtle card-like appearance.
  * - Make sure the named slots match exactly the `tabId` values.
  */
 
-import {ref, watch} from 'vue'
+import {type Ref, ref, watch} from 'vue'
 import type {Tab} from '@/types'
 import {useI18n} from 'vue-i18n'
 
 const props = defineProps<{
   tabs: Tab[]
   modelValue?: string
-  position?: 'top' | 'bottom'
-  type?: 'normal' | 'fixed' | 'grow'
 }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 
-const activeTab = ref(props.modelValue || props.tabs[0]?.tabId || '')
+const activeTab: Ref<string> = ref(props.modelValue || props.tabs[0]?.tabId || '')
 watch(activeTab, val => emit('update:modelValue', val))
 watch(() => props.modelValue, val => { if (val) activeTab.value = val })
 
@@ -72,30 +68,24 @@ const {t} = useI18n()
 </script>
 
 <template>
-  <v-sheet elevation="1" class="tab-container">
-    <v-tabs
-        v-model="activeTab"
-        :items="tabs"
-        :align-tabs="position === 'top' ? 'start' : 'end'"
-        :fixed-tabs="type === 'fixed'"
-        :grow="type === 'grow'"
-        position="top"
-        class="w-100"
-        color="primary"
+  <v-tabs
+      v-model="activeTab"
+      :items="tabs"
+      grow
+      class="w-100"
+      color="primary"
+  >
+    <!-- Render each tab -->
+    <v-tab
+        v-for="tab in tabs"
+        :key="tab.tabId"
+        :value="tab.tabId"
     >
-      <!-- Render each tab -->
-      <template #tab="{ item }">
-        <v-tab :prepend-icon="item.icon" :text="t(item.label)" :value="item.tabId" />
-      </template>
+      <v-icon v-if="tab.icon" :icon="tab.icon" start />
+      {{ t(tab.label) }}
+    </v-tab>
+  </v-tabs>
 
-      <!-- Render each tab content -->
-      <template #item="{ item }">
-        <v-tabs-window-item :value="item.tabId" class="tab-content">
-          <slot :name="item.tabId" />
-        </v-tabs-window-item>
-      </template>
-    </v-tabs>
-  </v-sheet>
 </template>
 
 <style scoped>
