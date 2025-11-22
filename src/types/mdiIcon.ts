@@ -30,4 +30,5 @@ export type MdiIcon =
     | 'mdi-movie-open'
     | 'mdi-account'
     | 'mdi-account-group'
-    | 'mdi-view-dashboard';
+    | 'mdi-view-dashboard'
+    | 'mdi-magnify'
