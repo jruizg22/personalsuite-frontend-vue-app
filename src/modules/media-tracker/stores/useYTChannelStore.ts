@@ -55,9 +55,9 @@ import {mediaTrackerEndpoints} from '@media-tracker/constants'
  * - State is reactive and can be directly used in Vue components with `ref`/`computed`.
  */
 export const useYTChannelStore = defineStore('channel', () => {
-    const channels: Ref<YTChannel[]> = ref([])
-    const loading: Ref<boolean> = ref(false)
-    const error: Ref<string | null> = ref(null)
+    const channels: Ref<YTChannel[]> = ref<YTChannel[]>([])
+    const loading: Ref<boolean> = ref<boolean>(false)
+    const error: Ref<string | null> = ref<string | null>(null)
 
     /** Fetch all channels */
     async function getAll(params?: GetAllParams): Promise<ApiResponse<YTChannel[]>> {
